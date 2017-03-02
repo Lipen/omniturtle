@@ -152,9 +152,9 @@ bool Turtle::update(double dt, QPainter& path_painter, const QImage& path_image,
   QPointF old_pos = pos_;
 
   orient_ = std::fmod(orient_ + ang_vel_ * dt, 2*PI);
-  pos_.rx() += std::cos(orient_) * lin_vel_x * dt +
+  pos_.rx() += std::cos(orient_) * lin_vel_x * dt -
                std::sin(orient_) * lin_vel_y * dt;
-  pos_.ry() += -std::sin(orient_) * lin_vel_x * dt +
+  pos_.ry() += -std::sin(orient_) * lin_vel_x * dt -
                 std::cos(orient_) * lin_vel_y * dt;
 
   // Clamp to screen size
